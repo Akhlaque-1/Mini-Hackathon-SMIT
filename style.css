@@ -7,17 +7,20 @@
   --btnPadding: 6px 16px;
   --sectionPadding: 40px 10px;
   --text-success:  #198754;
- 
-  
+  --text-light: #717171;
+
 }
 
-
-.heroSection{
-  background:#F5F7FA;
+.heroSection {
+  background: #F5F7FA;
 }
 
-
-
+.custom-link {
+  color: #717171 ;
+}
+.heroSection p {
+  color: #717171;
+}
 
 .myBtn, .heroSection {
   color: var(--whiteColor);
@@ -39,36 +42,84 @@
 }
 
 .dummyBg, .myBtn {
-  background-color: var( --text-success);
+  background-color: var(--text-success);
 }
-
-
-
 
 .dummyBg {
   height: 400px;
 }
 
+/* 1. Animate Navbar on Load */
+.navbar {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeSlideDown 1s ease forwards;
+}
+
+@keyframes fadeSlideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Hover effect on nav links */
+.navbar-nav .nav-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff; /* or any highlight color */
+  transform: translateY(-2px);
+}
+
+/* 3. Optional: Add shadow on scroll */
+.navbar.scrolled {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Animate button on load */
+.myBtn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 1s; /* starts after navbar animation */
+}
+
+/* Button hover effect */
+.myBtn:hover {
+  background-color: #007bff; /* Change this to your theme color */
+  color: #fff;
+  transform: translateY(-2px) scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Keyframe for fade-up animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 section {
   padding: var(--sectionPadding);
- }
+}
 
-
- .projectsection h1{
+.projectsection h1 {
   display: flex;
   justify-content: center;
- }
+}
 
- .projectsection p{
-
-   display: flex;
+.projectsection p {
+  display: flex;
   justify-content: center;
+ 
+}
 
- }
-
-
- @media (max-width: 768px) {
+@media (max-width: 768px) {
   .heroSection .row {
     gap: 20px;
   }
-}  
+}
